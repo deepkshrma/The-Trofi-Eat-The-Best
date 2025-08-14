@@ -1,7 +1,22 @@
-import React from "react";
+import { useAppContext } from "../../context/AppContext";
+import { toast } from "react-toastify";
 
-function Login() {
-  return <div>Login</div>;
+export default function Login() {
+  const { login, requestNotificationPermission } = useAppContext();
+
+  const handleLogin = () => {
+    //login from API
+    const fakeToken = "sample_auth_token_123";
+    login(fakeToken);
+    toast.success("Login successful!");
+    requestNotificationPermission(); // Ask for push notifications
+  };
+
+  return (
+    <div>
+      <h1>Login Page</h1>
+      <button onClick={handleLogin}>Login</button>
+      
+    </div>
+  );
 }
-
-export default Login;
