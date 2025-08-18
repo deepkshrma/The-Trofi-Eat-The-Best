@@ -200,9 +200,9 @@ function Sidebar({ setIs_Toggle, isToggle }) {
   return (
     <>
       <div
-        className={`sidebar bg-[#ffffff] h-screen fixed left-0 top-0  ${
-          isToggle ? "block" : "hidden"
-        } transition-all duration-800 z-11`}
+        className={`sidebar bg-[#ffffff] h-screen fixed left-0 top-0 w-64
+    transform transition-transform duration-500 ease-in-out z-11
+    ${isToggle ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Logo */}
         <div className="flex justify-between logo-container top-0 left-0 bg-white px-4  py-5 z-10">
