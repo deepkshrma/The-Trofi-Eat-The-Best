@@ -23,7 +23,7 @@ function Header({ setIs_Toggle, isToggle }) {
   };
   return (
     <>
-      <div className="header header_top_menu fixed top-0 left-0 z-10 flex w-full py-2 items-center justify-between bg-[#F9832B] p-4 shadow-sm">
+      <div className="header header_top_menu fixed top-0 left-0 z-10 flex w-full py-2 items-center justify-between bg-[#F9832B] pl-6 pr-6 shadow-sm">
         <span>
           {isToggle ? (
             "" // <HiMenu size={18} onClick={handleToggle} />
@@ -32,7 +32,7 @@ function Header({ setIs_Toggle, isToggle }) {
             <HiMenu
               size={25}
               onClick={handleToggle}
-              className="scale-x-100 w-8 cursor-pointer border-1 rounded border-gray-200 bg-gray-200 hover:bg-gray-300"
+              className="scale-x-100 w-8 cursor-pointer  rounded text-[#F9832B] hover:text-[#0A2C38]  bg-white"
             />
           )}
         </span>

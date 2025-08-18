@@ -5,7 +5,7 @@ body {
   font-size: medium;
 }
 .header_top_menu {
-  left: 16rem;
+  /* left: 16rem; */
   width: -webkit-fill-available;
 }
 .main.main_page {
