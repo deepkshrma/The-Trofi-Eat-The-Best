@@ -3,7 +3,7 @@ import { HiMenu } from "react-icons/hi";
 import profilePhoto from "../../assets/images/loginImage.jpg";
 import { FaChevronDown } from "react-icons/fa";
 
-function Header() {
+function Header({ setIs_Toggle, isToggle }) {
   const [userDropdown, setUserDropdown] = useState(false);
 
   const [isAnimating, setIsAnimating] = useState(false);
@@ -17,14 +17,24 @@ function Header() {
 
     setTimeout(() => setIsAnimating(false), 1000);
   };
+
+  const handleToggle = () => {
+    setIs_Toggle(!isToggle);
+  };
   return (
     <>
       <div className="header header_top_menu fixed top-0 left-0 z-10 flex w-full py-2 items-center justify-between bg-[#F9832B] p-4 shadow-sm">
         <span>
-          <HiMenu
-            size={25}
-            className="scale-x-100 w-8 cursor-pointer  rounded text-[#F9832B] hover:text-[#0A2C38]  bg-white "
-          />
+          {isToggle ? (
+            "" // <HiMenu size={18} onClick={handleToggle} />
+          ) : (
+            // <HiX size={18} onClick={handleToggle} />
+            <HiMenu
+              size={25}
+              onClick={handleToggle}
+              className="scale-x-100 w-8 cursor-pointer border-1 rounded border-gray-200 bg-gray-200 hover:bg-gray-300"
+            />
+          )}
         </span>
 
         <div className="flex justify-end">
@@ -62,6 +72,8 @@ function Header() {
           </div>
         </div>
       </div>
+
+      <div className="mt-12"></div>
     </>
   );
 }
