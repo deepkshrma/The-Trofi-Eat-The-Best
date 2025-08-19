@@ -4,16 +4,19 @@ import { FaPlayCircle } from "react-icons/fa";
 import logo from "../../assets/images/logo.jpg";
 import { MdEmail } from "react-icons/md";
 import bgImage from "../../assets/images/loginImage.jpg";
+import { Navigate, useNavigate, useLocation } from "react-router-dom";
 
 export default function Login() {
   const { login, requestNotificationPermission } = useAppContext();
 
+  const navigate = useNavigate();
   const handleLogin = () => {
     //login from API
-    const fakeToken = "sample_auth_token_123";
-    login(fakeToken);
-    toast.success("Login successful!");
-    requestNotificationPermission(); // Ask for push notifications
+    // const fakeToken = "sample_auth_token_123";
+    // login(fakeToken);
+    // toast.success("Login successful!");
+    // requestNotificationPermission(); // Ask for push notifications
+    navigate("/Dashboard");
   };
 
   return (
@@ -58,7 +61,10 @@ export default function Login() {
               </div>
 
               {/* Login Button */}
-              <button className="w-full px-8 py-2 text-lg font-semibold text-white rounded-full cursor-pointer bg-[#F9832B] hover:bg-[#0A2C38]">
+              <button
+                onClick={handleLogin}
+                className="w-full px-8 py-2 text-lg font-semibold text-white rounded-full cursor-pointer bg-[#F9832B] hover:bg-[#0A2C38]"
+              >
                 Login
               </button>
             </form>

@@ -8,13 +8,13 @@ import dashboard_pending from "../../assets/images/pending.png";
 function Dashboard() {
   return (
     <>
-      <div className="main main_page bg-[#F3F4F8] font-Montserrat space-y-4">
+      <div className="main main_page bg-[#FFFEF6] font-Montserrat space-y-4">
         {/* ---------title page */}
         <PageTitle title={"Dashboard"} />
         {/* ---------card box */}
         <div className="mt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-3 bg-[#ffffff] rounded-xl flex space-x-3 h-[100px]   justify-between">
+            <div className="p-3 bg-[#ffe0cc] rounded-xl flex space-x-3 h-[100px]   justify-between">
               <div className="space-y-3">
                 <h4 className="text-[14px] text-[#78797a] font-[500]">
                   Total User
@@ -28,7 +28,7 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="p-3 bg-[#ffffff] rounded-xl flex space-x-3 h-[100px]   justify-between">
+            <div className="p-3 bg-[#ffe0cc] rounded-xl flex space-x-3 h-[100px]   justify-between">
               <div className="space-y-3">
                 <h4 className="text-[14px] text-[#78797a] font-[500]">
                   Total Admin
@@ -42,7 +42,7 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="p-3 bg-[#ffffff] rounded-xl flex space-x-3 h-[100px]   justify-between">
+            <div className="p-3 bg-[#ffe0cc] rounded-xl flex space-x-3 h-[100px]   justify-between">
               <div className="space-y-3">
                 <h4 className="text-[14px] text-[#78797a]  font-[500]">
                   Total Revenue
@@ -56,7 +56,7 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="p-3 bg-[#ffffff] rounded-xl flex space-x-3 h-[100px]   justify-between">
+            <div className="p-3 bg-[#ffe0cc] rounded-xl flex space-x-3 h-[100px]   justify-between">
               <div className="space-y-3">
                 <h4 className="text-[14px] text-[#78797a] font-[500]">
                   Total Service Providers
