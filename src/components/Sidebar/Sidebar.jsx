@@ -7,15 +7,52 @@ import { TbCategoryPlus } from "react-icons/tb";
 import { BsPersonFillGear } from "react-icons/bs";
 import { FaCircleUser, FaChevronDown } from "react-icons/fa6";
 import { AiFillSound } from "react-icons/ai";
-import { MdPolicy } from "react-icons/md";
-import { FaChevronDown } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { FaCaretLeft } from "react-icons/fa6";
 import {
   Squares2X2Icon,
   CalendarIcon,
   Cog6ToothIcon,
 } from "@heroicons/react/24/outline";
+
+// Import MUI icons
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import InsightsIcon from "@mui/icons-material/Insights";
+import TagIcon from "@mui/icons-material/Tag";
+import ReviewsIcon from "@mui/icons-material/RateReview";
+import DownloadIcon from "@mui/icons-material/Download";
+
+import PeopleIcon from "@mui/icons-material/People";
+import GroupWorkIcon from "@mui/icons-material/GroupWork";
+import FlagIcon from "@mui/icons-material/Flag";
+import PersonSearchIcon from "@mui/icons-material/PersonSearch";
+
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
+import StarRateIcon from "@mui/icons-material/StarRate";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+
+import ReportProblemIcon from "@mui/icons-material/ReportProblem";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+
+import BadgeIcon from "@mui/icons-material/Badge";
+import HistoryIcon from "@mui/icons-material/History";
+
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import CampaignIcon from "@mui/icons-material/Campaign";
+import SecurityIcon from "@mui/icons-material/Security";
+import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
+
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
+
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import BusinessIcon from "@mui/icons-material/Business";
+import BackupIcon from "@mui/icons-material/Backup";
+import MonitorIcon from "@mui/icons-material/Monitor";
 
 function Sidebar({ setIs_Toggle, isToggle }) {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -26,124 +63,157 @@ function Sidebar({ setIs_Toggle, isToggle }) {
   const activePath = location.pathname;
 
   const filteredSidebarData = [
+    // Dashboard
     {
       section: null,
       items: [
-        {
-          name: "Dashboard",
-          icon: <Squares2X2Icon className="w-4" />,
-          link: "/Dashboard",
-          dropdown: false,
-        },
+        ...(userRole === "admin"
+          ? [
+              {
+                name: "Admin Dashboard",
+                icon: <DashboardIcon className="w-4 h-4" />,
+                link: "#",
+                dropdown: false,
+              },
+            ]
+          : []),
+        ...(userRole === "superadmin"
+          ? [
+              {
+                name: "Superadmin Dashboard",
+                icon: <DashboardIcon className="w-4 h-4" />,
+                link: "#",
+                dropdown: false,
+              },
+            ]
+          : []),
       ],
       border: true,
     },
-    ...(userRole === "admin" || userRole === "superadmin"
-      ? [
-          {
-            section: "Feedback & Reviews Insights",
-            items: [
-              {
-                name: "Admin Roles",
-                icon: <Cog6ToothIcon className="w-4" />,
-                dropdown: true,
-                link: "#",
-                subItems: [
-                  { name: "Admin Role Setup", link: "/RoleUpdate" },
-                  { name: "Roles", link: "/Roles" },
-                ],
-              },
-              {
-                name: "Admin List",
-                icon: <IoIosList className="w-4" />,
-                dropdown: false,
-                link: "/admin_list",
-              },
-              {
-                name: "Create Admin",
-                icon: <IoMdPersonAdd className="w-4" />,
-                dropdown: false,
-                link: "/CreateAdmin",
-              },
-            ],
-            border: true,
-          },
-        ]
-      : []),
+
+    // Feedback & Reviews
+    {
+      section: "Feedback & Reviews Insights",
+      items: [
+        { name: "Insights & Graphs", icon: <InsightsIcon />, link: "#" },
+        { name: "Hashtag Trends", icon: <TagIcon />, link: "#" },
+        { name: "Review Moderation", icon: <ReviewsIcon />, link: "#" },
+        { name: "Export Reports", icon: <DownloadIcon />, link: "#" },
+      ],
+      border: true,
+    },
+
+    // User Activity
     {
       section: "User Activity & Demographics",
       items: [
+        { name: "Demographics", icon: <PeopleIcon />, link: "#" },
+        { name: "Tier Distribution", icon: <GroupWorkIcon />, link: "#" },
+        { name: "Flags & Behavior", icon: <FlagIcon />, link: "#" },
         {
-          name: "Main Categories",
-          icon: <MdCategory className="w-4" />,
-          dropdown: false,
-          link: "/MainCategories",
-        },
-        {
-          name: "Sub Categories",
-          icon: <TbCategoryPlus className="w-4" />,
-          dropdown: true,
+          name: "User Drilldown Profiles",
+          icon: <PersonSearchIcon />,
           link: "#",
-          subItems: [
-            { name: "Add Categories", link: "/AddCategories" },
-            { name: "Category List", link: "/Categories" },
-          ],
         },
       ],
       border: true,
     },
+
+    // Restaurant Performance
     {
       section: "Restaurant & Dish Performance",
       items: [
+        { name: "Dish Trends", icon: <LocalDiningIcon />, link: "#" },
+        { name: "Restaurant Trends", icon: <RestaurantIcon />, link: "#" },
+        { name: "Hygiene Seal / Ratings", icon: <StarRateIcon />, link: "#" },
         {
-          name: "Provider",
-          icon: <BsPersonFillGear className="w-4" />,
-          dropdown: true,
+          name: "Owner Insights & Reports",
+          icon: <AssessmentIcon />,
           link: "#",
-          subItems: [
-            { name: "Provider List", link: "/ProviderList" },
-            { name: "Pending Request", link: "/PendingRequest" },
-          ],
-        },
-        {
-          name: "User",
-          icon: <FaCircleUser className="w-4" />,
-          dropdown: true,
-          link: "#",
-          subItems: [{ name: "User List", link: "/CustomerList" }],
         },
       ],
       border: true,
     },
+
+    // Flags & Moderation
     {
       section: "Flags & Moderation",
       items: [
+        { name: "Flagged Users", icon: <FlagIcon />, link: "#" },
+        { name: "Flagged Feedbacks", icon: <ReportProblemIcon />, link: "#" },
+        { name: "Bulk Moderation Actions", icon: <ListAltIcon />, link: "#" },
+      ],
+      border: true,
+    },
+
+    // Check-ins
+    {
+      section: "Check-ins & Engagement",
+      items: [
+        { name: "Check-in Trends", icon: <LocationOnIcon />, link: "#" },
         {
-          name: "Policies",
-          icon: <MdPolicy className="w-4" />,
-          dropdown: true,
+          name: "Suspicious Behavior Alerts",
+          icon: <WarningAmberIcon />,
           link: "#",
-          subItems: [
-            { name: "Policies List", link: "/PoliciesList" },
-            { name: "Create Policies", link: "/CreatePolicies" },
-          ],
         },
       ],
       border: true,
     },
+
+    // User & Tier Management
     {
-      section: "Check-ins & Engagement",
+      section: "User & Tier Management",
+      items: [
+        { name: "User Profiles", icon: <PeopleIcon />, link: "#" },
+        { name: "Tier Points & Badges", icon: <BadgeIcon />, link: "#" },
+        { name: "Flagged Users History", icon: <HistoryIcon />, link: "#" },
+      ],
+      border: true,
+    },
+
+    // Notifications
+    {
+      section: "Notifications",
       items: [
         {
-          name: "Banners",
-          icon: <AiFillSound className="w-4" />,
-          dropdown: true,
+          name: "Manage Notifications",
+          icon: <NotificationsIcon />,
           link: "#",
-          subItems: [
-            { name: "Banner List", link: "/BannerList" },
-            { name: "Create Banner", link: "/Createbanner" },
-          ],
         },
+        { name: "Feedback Prompts", icon: <CampaignIcon />, link: "#" },
+        { name: "Policy Alerts", icon: <SecurityIcon />, link: "#" },
+        { name: "Notification History", icon: <HistoryEduIcon />, link: "#" },
+      ],
+      border: true,
+    },
+
+    // Menu & Dish Tools
+    {
+      section: "Menu & Dish Tools",
+      items: [
+        { name: "Upload Menu Images", icon: <MenuBookIcon />, link: "#" },
+        { name: "Ingredients Management", icon: <AddCircleIcon />, link: "#" },
+        {
+          name: "Dish Image Moderation",
+          icon: <PhotoLibraryIcon />,
+          link: "#",
+        },
+      ],
+      border: true,
+    },
+
+    // Admin & System Controls
+    {
+      section: "Admin & System Controls",
+      items: [
+        {
+          name: "Role Management",
+          icon: <AdminPanelSettingsIcon />,
+          link: "#",
+        },
+        { name: "Restaurant Management", icon: <BusinessIcon />, link: "#" },
+        { name: "Data Import / Backup", icon: <BackupIcon />, link: "#" },
+        { name: "Monitoring & Logs", icon: <MonitorIcon />, link: "#" },
       ],
       border: true,
     },
