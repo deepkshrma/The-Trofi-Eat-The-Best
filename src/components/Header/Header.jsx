@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import profilePhoto from "../../assets/images/loginImage.jpg";
 import { FaChevronDown } from "react-icons/fa";
+import headerlogo from "../../../public/favicon.png";
 
 function Header({ setIs_Toggle, isToggle }) {
   const [userDropdown, setUserDropdown] = useState(false);
@@ -23,8 +24,8 @@ function Header({ setIs_Toggle, isToggle }) {
   };
   return (
     <>
-      <div className="header header_top_menu fixed top-0 left-0 z-10 flex w-full py-2 items-center justify-between bg-[#F9832B] pl-6 pr-6 shadow-sm">
-        <span>
+      <div className="header header_top_menu fixed top-0 left-0 z-10 flex w-full py-1 items-center justify-between bg-[#F9832B] pl-12 pr-6 shadow-sm rounded-bl-full rounded-br-full">
+        <span className="flex gap-5 items-center">
           {isToggle ? (
             "" // <HiMenu size={18} onClick={handleToggle} />
           ) : (
@@ -35,6 +36,9 @@ function Header({ setIs_Toggle, isToggle }) {
               className="scale-x-100 w-8 cursor-pointer  rounded text-[#F9832B] hover:text-[#0A2C38]  bg-white"
             />
           )}
+          <div>
+            <img src={headerlogo} alt="" />
+          </div>
         </span>
 
         <div className="flex justify-end">

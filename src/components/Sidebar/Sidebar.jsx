@@ -7,7 +7,10 @@ import { TbCategoryPlus } from "react-icons/tb";
 import { BsPersonFillGear } from "react-icons/bs";
 import { FaCircleUser, FaChevronDown } from "react-icons/fa6";
 import { AiFillSound } from "react-icons/ai";
-import { HiX } from "react-icons/hi";
+import { MdPolicy } from "react-icons/md";
+import { FaChevronDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaCaretLeft } from "react-icons/fa6";
 import {
   Squares2X2Icon,
   CalendarIcon,
@@ -29,7 +32,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
         {
           name: "Dashboard",
           icon: <Squares2X2Icon className="w-4" />,
-          link: "/dashboard",
+          link: "/Dashboard",
           dropdown: false,
         },
       ],
@@ -38,7 +41,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
     ...(userRole === "admin" || userRole === "superadmin"
       ? [
           {
-            section: "Admin Management",
+            section: "Feedback & Reviews Insights",
             items: [
               {
                 name: "Admin Roles",
@@ -68,7 +71,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
         ]
       : []),
     {
-      section: "Category Management",
+      section: "User Activity & Demographics",
       items: [
         {
           name: "Main Categories",
@@ -90,7 +93,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
       border: true,
     },
     {
-      section: "User Management",
+      section: "Restaurant & Dish Performance",
       items: [
         {
           name: "Provider",
@@ -113,7 +116,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
       border: true,
     },
     {
-      section: "Report Management",
+      section: "Flags & Moderation",
       items: [
         {
           name: "Policies",
@@ -129,7 +132,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
       border: true,
     },
     {
-      section: "Promotion Management",
+      section: "Check-ins & Engagement",
       items: [
         {
           name: "Banners",
@@ -140,19 +143,6 @@ function Sidebar({ setIs_Toggle, isToggle }) {
             { name: "Banner List", link: "/BannerList" },
             { name: "Create Banner", link: "/Createbanner" },
           ],
-        },
-      ],
-      border: true,
-    },
-    {
-      section: "Booking Management",
-      items: [
-        {
-          name: "Booking",
-          icon: <CalendarIcon className="w-4" />,
-          dropdown: true,
-          link: "#",
-          subItems: [{ name: "Booking Requests", link: "/BookingRequest" }],
         },
       ],
       border: true,
@@ -186,99 +176,101 @@ function Sidebar({ setIs_Toggle, isToggle }) {
   };
 
   return (
-    <div
-      className={`sidebar bg-white h-screen fixed left-0 top-0 w-64 shadow-lg
-        transform transition-transform duration-500 ease-in-out z-20
-        ${isToggle ? "translate-x-0" : "-translate-x-full"}`}
-    >
-      {/* Logo + Close */}
-      <div className="flex justify-between items-center px-5 py-4 border-b border-gray-200">
-        <img src={logo} alt="Logo" className="w-[110px]" />
-        {isToggle && (
-          <HiX
-            size={20}
-            onClick={handleToggle}
-            className="text-gray-500 cursor-pointer hover:text-[#F9832B] transition"
-          />
-        )}
-      </div>
+    <>
+      <div className="flex">
+        <div
+          className={`sidebar bg-[#ffffff] h-[calc(100vh-56px)] fixed top-14 left-0 w-64
+    transform transition-transform duration-500 ease-in-out z-9 
+    ${isToggle ? "translate-x-0" : "-translate-x-full"} shadow-lg`}
+        >
+          {isToggle && (
+            <FaCaretLeft
+              size={25}
+              onClick={handleToggle}
+              className="scale-x-100 w-8 cursor-pointer  rounded text-white hover:text-[#0A2C38]  bg-[#F9832B] translate-x-[235px] mt-5 mb-3"
+            />
+          )}
 
-      {/* Navigation */}
-      <nav className="mt-2">
-        <ul className="flex flex-col h-[82vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#F9832B] scrollbar-track-gray-100 px-2">
-          {filteredSidebarData.map((section, sectionIndex) => (
-            <React.Fragment key={sectionIndex}>
-              {section.section && (
-                <span className="text-[11px] font-Montserrat uppercase tracking-[1px] mx-3 text-[#9C9C9C] my-3">
-                  {section.section}
-                </span>
-              )}
-              {section.items.map((item, itemIndex) => (
-                <li key={itemIndex} className="mb-1">
-                  {item.dropdown ? (
-                    <div
-                      onClick={() => handleMainClick(item)}
-                      className="flex justify-between items-center pl-3 py-3 pr-3 rounded-lg cursor-pointer hover:bg-[#FFF3EB] text-gray-700 transition-all"
-                    >
-                      <div className="flex items-center gap-3 font-Montserrat text-[14px]">
-                        {item.icon}
-                        {item.name}
-                      </div>
-                      <FaChevronDown
-                        className={`w-3 transition-transform duration-200 ${
-                          openDropdown === item.name ? "rotate-180" : ""
-                        }`}
-                      />
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.link}
-                      onClick={() => handleMainClick(item)}
-                      className={`flex items-center gap-3 pl-3 pr-3 py-3 rounded-lg font-Montserrat text-[14px] transition-all
-                        ${
-                          activePath === item.link
-                            ? "bg-[#F9832B] text-white font-semibold"
-                            : "text-gray-700 hover:bg-[#FFF3EB]"
-                        }`}
-                    >
-                      {item.icon}
-                      {item.name}
-                    </Link>
+          {/* Navigation */}
+          <nav className="relative">
+            <ul className="flex flex-col h-[82vh] overflow-y-auto scrollbar scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200">
+              {filteredSidebarData.map((section, sectionIndex) => (
+                <React.Fragment key={sectionIndex}>
+                  {section.section && (
+                    <span className="text-[12px] mx-4 text-[#F9832B] my-2">
+                      {section.section}
+                    </span>
                   )}
+                  {section.items.map((item, itemIndex) => (
+                    <li
+                      key={itemIndex}
+                      className={`text-sm   mx-4 rounded-sm  leading-[100%] tracking-[0.3px] transition-colors duration-200 group relative`}
+                    >
+                      {item.dropdown ? (
+                        <div
+                          onClick={() => handleMainClick(item)}
+                          className={`flex justify-between items-center pl-3 py-4 pr-3 rounded cursor-pointer  hover:bg-[#ffe0cc] text-gray-800`}
+                        >
+                          <div className="flex items-center gap-3 font-medium">
+                            {item.icon}
+                            {item.name}
+                          </div>
+                          <FaChevronDown
+                            className={`w-2 transition-transform duration-200 ${
+                              openDropdown === item.name ? "rotate-180" : ""
+                            }`}
+                          />
+                        </div>
+                      ) : (
+                        <Link
+                          to={item.link}
+                          onClick={() => handleMainClick(item)}
+                          className={`flex justify-between items-center pl-3 py-4 pr-3 rounded cursor-pointer hover:bg-[#ffe0cc] text-gray-800 
+                              `}
+                        >
+                          <div className="flex items-center gap-3 font-medium">
+                            {item.icon}
+                            {item.name}
+                          </div>
+                        </Link>
+                      )}
 
-                  {/* Submenu */}
-                  {item.dropdown &&
-                    openDropdown === item.name &&
-                    item.subItems && (
-                      <ul className="ml-6 mt-1 flex flex-col gap-1">
-                        {item.subItems.map((subItem, subIndex) => (
-                          <li key={subIndex}>
-                            <Link
-                              to={subItem.link}
-                              onClick={() => handleSubClick(subItem.link)}
-                              className={`block px-3 py-2 rounded-md text-sm font-Montserrat transition-all
-                                ${
+                      {item.dropdown &&
+                        openDropdown === item.name &&
+                        item.subItems && (
+                          <ul className="ml-6 mt-2 flex flex-col gap-1 list-disc pl-6">
+                            {item.subItems.map((subItem, subIndex) => (
+                              <li
+                                key={subIndex}
+                                className={` font-medium  cursor-pointer rounded ${
                                   activePath === subItem.link
                                     ? "text-[#F9832B] font-semibold"
-                                    : "text-gray-600 hover:text-[#F9832B]"
+                                    : "text-black hover:text-[#F9832B]"
                                 }`}
-                            >
-                              {subItem.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                </li>
+                                onClick={() => handleSubClick(subItem.link)}
+                              >
+                                <Link
+                                  to={subItem.link}
+                                  className="block px-3 py-4"
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                    </li>
+                  ))}
+                  {section.border && (
+                    <span className="flex my-2 border-t-1 border-gray-200"></span>
+                  )}
+                </React.Fragment>
               ))}
-              {section.border && (
-                <span className="flex my-2 border-t border-gray-200"></span>
-              )}
-            </React.Fragment>
-          ))}
-        </ul>
-      </nav>
-    </div>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </>
   );
 }
 
