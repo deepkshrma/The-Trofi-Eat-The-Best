@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import profilePhoto from "../../assets/images/loginImage.jpg";
 import { FaChevronDown } from "react-icons/fa";
-import headerlogo from "../../../public/favicon.png";
+import headerlogo from "/favicon.png";
 
 function Header({ setIs_Toggle, isToggle }) {
   const [userDropdown, setUserDropdown] = useState(false);
