@@ -3,6 +3,7 @@ import { HiMenu } from "react-icons/hi";
 import profilePhoto from "../../assets/images/loginImage.jpg";
 import { FaChevronDown } from "react-icons/fa";
 import headerlogo from "/favicon.png";
+import { GoBellFill } from "react-icons/go";
 
 function Header({ setIs_Toggle, isToggle }) {
   const [userDropdown, setUserDropdown] = useState(false);
@@ -44,6 +45,24 @@ function Header({ setIs_Toggle, isToggle }) {
         <div className="flex justify-end">
           <div className="flex items-center space-x-3">
             <div className="flex items-center space-x-3 cursor-pointer px-3 py-1 rounded-[8px]">
+              <div className="relative">
+                {/* Notification Count */}
+                <div
+                  className="flex justify-center items-center w-[15px] h-[15px] 
+                  bg-red-500 absolute right-0 rounded-xl 
+                  text-white text-[11px] z-10"
+                >
+                  9
+                </div>
+
+                {/* Bell with hover effect */}
+                <GoBellFill
+                  className="w-7 h-7 text-blue-500 
+               transition-transform duration-200 
+               hover:scale-110 hover:rotate-6 hover:drop-shadow-lg"
+                />
+              </div>
+
               <div className="rounded-full bg-[#D8D8D8] overflow-hidden">
                 <img
                   src={profilePhoto}

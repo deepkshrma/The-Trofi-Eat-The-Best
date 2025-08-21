@@ -274,7 +274,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
                   {section.items.map((item, itemIndex) => (
                     <li
                       key={itemIndex}
-                      className={`text-sm   mx-4 rounded-sm  leading-[100%] tracking-[0.3px] transition-colors duration-200 group relative`}
+                      className={`text-sm   mx-2 rounded-sm  leading-[100%] tracking-[0.3px] transition-colors duration-200 group relative`}
                     >
                       {item.dropdown ? (
                         <div
@@ -295,11 +295,13 @@ function Sidebar({ setIs_Toggle, isToggle }) {
                         <Link
                           to={item.link}
                           onClick={() => handleMainClick(item)}
-                          className={`flex justify-between items-center pl-3 py-4 pr-3 rounded cursor-pointer hover:bg-[#ffe0cc] text-gray-800 
+                          className={`flex justify-between items-center px-2 py-2  rounded-full cursor-pointer hover:bg-[#ffe0cc] text-gray-800 group 
                               `}
                         >
-                          <div className="flex items-center gap-3 font-medium">
-                            {item.icon}
+                          <div className="flex items-center justify-between gap-5 font-medium">
+                            <span className="text-gray-600 rounded-full p-3 group-hover:bg-[#F9832B] group-hover:text-[#FFFFFF] transition-colors">
+                              {item.icon}
+                            </span>
                             {item.name}
                           </div>
                         </Link>
