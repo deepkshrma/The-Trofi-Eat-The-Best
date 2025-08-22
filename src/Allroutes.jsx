@@ -6,6 +6,8 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Layout from "./Layout/Layout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RoleList from "./Pages/Role/RoleLIst";
+import AdminProfile from "./Pages/Admin/AdminProfile";
+import RestroAdd from "./Pages/Restaurant/RestroAdd";
 
 const Allroutes = () => {
   return (
@@ -16,6 +18,8 @@ const Allroutes = () => {
         <Route element={<Layout />}>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/RoleList" element={<RoleList />} />
+          <Route path="/AdminProfile" element={<AdminProfile />} />
+          <Route path="/RestroAdd" element={<RestroAdd />} />
         </Route>
       </Routes>
     </Router>
