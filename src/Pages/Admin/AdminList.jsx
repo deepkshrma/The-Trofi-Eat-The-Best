@@ -436,7 +436,7 @@ const AdminList = () => {
       <div className="flex justify-between items-center">
         <PageTitle title={"Admin List"} />
         <button
-          className="bg-blue-500 text-white cursor-pointer px-4 py-2 rounded hover:bg-blue-600 text-[12px]"
+          className="bg-[#F9832B] text-white cursor-pointer px-4 py-2 rounded hover:bg-[#e67220] text-[12px]"
           onClick={() => navigate("/CreateAdmin")}
         >
           <span className="font-bold">+ </span>ADD ADMIN
