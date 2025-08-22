@@ -21,7 +21,61 @@ import { FaUserXmark } from "react-icons/fa6";
 import { FaUserShield } from "react-icons/fa6";
 
 function UserList() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([{
+    _id: "u1",
+    first_name: "John",
+    last_name: "Doe",
+    email: "john.doe@example.com",
+    phone: "+91 9876543210",
+    status: "active",
+    createdAt: "2024-07-12T10:20:30Z",
+    profile_picture: null,
+    address: { city: "Mumbai" },
+  },
+  {
+    _id: "u2",
+    first_name: "Jane",
+    last_name: "Smith",
+    email: "jane.smith@example.com",
+    phone: "+91 9988776655",
+    status: "inactive",
+    createdAt: "2024-06-20T14:05:00Z",
+    profile_picture: null,
+    address: { city: "Delhi" },
+  },
+  {
+    _id: "u3",
+    first_name: "Raj",
+    last_name: "Kumar",
+    email: "raj.kumar@example.com",
+    phone: "+91 9123456780",
+    status: "suspended",
+    createdAt: "2024-05-01T09:45:15Z",
+    profile_picture: null,
+    address: { city: "Bangalore" },
+  },
+  {
+    _id: "u4",
+    first_name: "Emily",
+    last_name: "Johnson",
+    email: "emily.johnson@example.com",
+    phone: "+91 9001122334",
+    status: "active",
+    createdAt: "2024-04-18T12:30:45Z",
+    profile_picture: null,
+    address: { city: "Hyderabad" },
+  },
+  {
+    _id: "u5",
+    first_name: "Amit",
+    last_name: "Verma",
+    email: "amit.verma@example.com",
+    phone: "+91 9112233445",
+    status: "inactive",
+    createdAt: "2024-03-25T08:15:10Z",
+    profile_picture: null,
+    address: { city: "Kolkata" },
+  },]);
   const [showStatusModal, setShowStatusModal] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -73,7 +127,7 @@ function UserList() {
     return (
       <span
         className={`text-xs font-medium px-2.5 py-0.5 rounded cursor-pointer ${
-          colorMap[user.status] || "bg-gray-100 text-gray-800"
+          colorMap[user.status] || "bg-[#FFFEF6] text-gray-800"
         }`}
         onClick={() => {
           setSelectedCustomer(user);
@@ -158,7 +212,7 @@ function UserList() {
   };
 
   return (
-    <div className="main main_page bg-[#F3F4F8] font-Montserrat space-y-4">
+    <div className="main main_page bg-[#FFFEF6] font-Montserrat space-y-4">
       <BreadcrumbsNav
   customTrail={[
     { label: "Users List", path: "/CustomerList" },

@@ -50,7 +50,7 @@ const UserDropdown = ({
   }, [onClosedropdown]);
 
   const fullName = user ? `${user.first_name} ${user.last_name}` : "User Name";
-  const role = user?.role?.name || "User Role";
+  const role = user?.role?.name || " Role";
 
   return (
     <>

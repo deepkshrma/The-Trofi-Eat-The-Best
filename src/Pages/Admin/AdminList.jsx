@@ -429,7 +429,7 @@ const AdminList = () => {
   });
 
   return (
-    <div className="main main_page bg-[#F3F4F8] font-Montserrat space-y-4">
+    <div className="main main_page bg-[#FFFEF6] font-Montserrat space-y-4">
       <BreadcrumbsNav
         customTrail={[{ label: "Admin List", path: "/admin_list" }]}
       />

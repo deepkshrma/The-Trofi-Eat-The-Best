@@ -1,5 +1,6 @@
 import React from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import profile_image from "../../assets/images/guest.png";
 
 function AdminProfile() {
   const profileData = {
@@ -11,7 +12,7 @@ function AdminProfile() {
     gender: "Male",
     fullAddress: "123, Green Avenue, Jaipur, Rajasthan, India",
     role: "Admin",
-    profileImage: "https://via.placeholder.com/150", // replace with actual image
+    profileImage: ""
   };
 
   const {
@@ -35,7 +36,11 @@ function AdminProfile() {
             {/* Left Section - Profile Image and Role */}
             <div className="flex flex-col items-center md:items-start space-y-4">
               <img
-                src=""
+                src={
+                profile_picture
+                  ? `${BASE_URL}/${profile_picture}`
+                  : profile_image
+              }
                 alt="Profile"
                 className="w-32 h-32 rounded-full shadow-lg object-cover"
               />
