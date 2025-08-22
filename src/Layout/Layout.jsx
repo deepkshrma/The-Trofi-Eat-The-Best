@@ -9,7 +9,7 @@ function Layout() {
     <>
       <div className={`flex w-full ${isToggle ? null : "side_menu"}`}>
         <Sidebar isToggle={isToggle} setIs_Toggle={setIs_Toggle} />
-        <div className="w-full">
+        <div className="w-full bg-[#FFFEF6]">
           <Header
             setIs_Toggle={setIs_Toggle}
             isToggle={isToggle}
