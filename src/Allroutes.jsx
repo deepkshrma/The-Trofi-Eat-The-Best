@@ -12,6 +12,8 @@ import RestroAdd from "./Pages/Restaurant/RestroAdd";
 import RoleCreate from "./Pages/Role/RoleCreate";
 import AdminList from "./Pages/Admin/AdminList";
 import UserList from "./Pages/User/UserLIst";
+import RestroList from "./Pages/Restaurant/RestroList";
+import UserProfile from "./Pages/User/UserProfile";
 
 const Allroutes = () => {
   const [authData, setAuthData] = useState(() =>
@@ -31,6 +33,8 @@ const Allroutes = () => {
             <Route path="/AdminList" element={<AdminList />} />
             <Route path="/UserList" element={<UserList />} />
             <Route path="/RestroAdd" element={<RestroAdd />} />
+            <Route path="/RestroList" element={<RestroList />} />
+            <Route path="/UserProfile" element={<UserProfile />} />
           </Route>
         </Routes>
       </Router>
