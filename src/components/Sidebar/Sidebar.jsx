@@ -279,7 +279,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
     <>
       <div className="flex">
         <div
-          className={`sidebar bg-[#ffffff] h-[calc(100vh-56px)] fixed top-14 left-0 w-64
+          className={`sidebar bg-[#ffffff] h-[calc(100vh-56px)] fixed top-11 left-0 w-64
     transform transition-transform duration-500 ease-in-out z-9 
     ${isToggle ? "translate-x-0" : "-translate-x-full"} shadow-lg`}
         >
