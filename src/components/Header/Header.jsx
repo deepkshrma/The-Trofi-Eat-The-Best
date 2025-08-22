@@ -5,11 +5,13 @@ import { FaChevronDown } from "react-icons/fa";
 import headerlogo from "/favicon.png";
 import { GoBellFill } from "react-icons/go";
 import NotificationBell from "./NotificationBell";
+import UserDropdown from "../common/UserDropdown/UserDropdown";
 
 function Header({ setIs_Toggle, isToggle }) {
   const [userDropdown, setUserDropdown] = useState(false);
 
   const [isAnimating, setIsAnimating] = useState(false);
+  const [user, setUser] = useState(null);
 
   const handleUserDropdown = () => {
     // setUserDropdown(!userDropdown);
@@ -19,6 +21,10 @@ function Header({ setIs_Toggle, isToggle }) {
     setUserDropdown((prev) => !prev);
 
     setTimeout(() => setIsAnimating(false), 1000);
+  };
+
+  const onCloseDropdown = () => {
+    setUserDropdown(false);
   };
 
   const handleToggle = () => {
@@ -77,6 +83,12 @@ function Header({ setIs_Toggle, isToggle }) {
                 </span>
               </div>
             </div>
+            <UserDropdown
+              userDropdown={userDropdown}
+              handleuserDropdown={handleUserDropdown}
+              onClosedropdown={onCloseDropdown}
+              user={user}
+            />
           </div>
         </div>
       </div>
