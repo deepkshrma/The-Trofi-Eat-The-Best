@@ -21,61 +21,63 @@ import { FaUserXmark } from "react-icons/fa6";
 import { FaUserShield } from "react-icons/fa6";
 
 function UserList() {
-  const [users, setUsers] = useState([{
-    _id: "u1",
-    first_name: "John",
-    last_name: "Doe",
-    email: "john.doe@example.com",
-    phone: "+91 9876543210",
-    status: "active",
-    createdAt: "2024-07-12T10:20:30Z",
-    profile_picture: null,
-    address: { city: "Mumbai" },
-  },
-  {
-    _id: "u2",
-    first_name: "Jane",
-    last_name: "Smith",
-    email: "jane.smith@example.com",
-    phone: "+91 9988776655",
-    status: "inactive",
-    createdAt: "2024-06-20T14:05:00Z",
-    profile_picture: null,
-    address: { city: "Delhi" },
-  },
-  {
-    _id: "u3",
-    first_name: "Raj",
-    last_name: "Kumar",
-    email: "raj.kumar@example.com",
-    phone: "+91 9123456780",
-    status: "suspended",
-    createdAt: "2024-05-01T09:45:15Z",
-    profile_picture: null,
-    address: { city: "Bangalore" },
-  },
-  {
-    _id: "u4",
-    first_name: "Emily",
-    last_name: "Johnson",
-    email: "emily.johnson@example.com",
-    phone: "+91 9001122334",
-    status: "active",
-    createdAt: "2024-04-18T12:30:45Z",
-    profile_picture: null,
-    address: { city: "Hyderabad" },
-  },
-  {
-    _id: "u5",
-    first_name: "Amit",
-    last_name: "Verma",
-    email: "amit.verma@example.com",
-    phone: "+91 9112233445",
-    status: "inactive",
-    createdAt: "2024-03-25T08:15:10Z",
-    profile_picture: null,
-    address: { city: "Kolkata" },
-  },]);
+  const [users, setUsers] = useState([
+    {
+      _id: "u1",
+      first_name: "John",
+      last_name: "Doe",
+      email: "john.doe@example.com",
+      phone: "+91 9876543210",
+      status: "active",
+      createdAt: "2024-07-12T10:20:30Z",
+      profile_picture: null,
+      address: { city: "Mumbai" },
+    },
+    {
+      _id: "u2",
+      first_name: "Jane",
+      last_name: "Smith",
+      email: "jane.smith@example.com",
+      phone: "+91 9988776655",
+      status: "inactive",
+      createdAt: "2024-06-20T14:05:00Z",
+      profile_picture: null,
+      address: { city: "Delhi" },
+    },
+    {
+      _id: "u3",
+      first_name: "Raj",
+      last_name: "Kumar",
+      email: "raj.kumar@example.com",
+      phone: "+91 9123456780",
+      status: "suspended",
+      createdAt: "2024-05-01T09:45:15Z",
+      profile_picture: null,
+      address: { city: "Bangalore" },
+    },
+    {
+      _id: "u4",
+      first_name: "Emily",
+      last_name: "Johnson",
+      email: "emily.johnson@example.com",
+      phone: "+91 9001122334",
+      status: "active",
+      createdAt: "2024-04-18T12:30:45Z",
+      profile_picture: null,
+      address: { city: "Hyderabad" },
+    },
+    {
+      _id: "u5",
+      first_name: "Amit",
+      last_name: "Verma",
+      email: "amit.verma@example.com",
+      phone: "+91 9112233445",
+      status: "inactive",
+      createdAt: "2024-03-25T08:15:10Z",
+      profile_picture: null,
+      address: { city: "Kolkata" },
+    },
+  ]);
   const [showStatusModal, setShowStatusModal] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -214,10 +216,8 @@ function UserList() {
   return (
     <div className="main main_page bg-[#FFFEF6] font-Montserrat space-y-4">
       <BreadcrumbsNav
-  customTrail={[
-    { label: "Users List", path: "/CustomerList" },
-  ]}
-/>
+        customTrail={[{ label: "Users List", path: "/CustomerList" }]}
+      />
       <PageTitle title={"Customer"} />
 
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -283,7 +283,7 @@ function UserList() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search here"
-                className="ml-6 text-[14px] outline-none bg-blue-50 appearance-none"
+                className="ml-6 text-[14px] outline-none bg-gray-100 appearance-none"
               />
             </div>
           </form>
@@ -314,7 +314,7 @@ function UserList() {
 
         <div className="overflow-x-auto">
           <table className="mt-2 w-full border-collapse">
-            <thead className="bg-blue-50">
+            <thead className="bg-gray-100">
               <tr className="text-gray-700">
                 {["SL", "Customer", "Contact Info", "Status", "Action"].map(
                   (head, i) => (

@@ -18,7 +18,7 @@ const Pagination = ({
   shadow-md active:scale-95
   ${
     active
-      ? "bg-blue-400 text-white"
+      ? "bg-[#F9832B] text-white"
       : "bg-gray-200 text-gray-800 hover:bg-gray-300"
   }`}
     >
@@ -77,7 +77,7 @@ const Pagination = ({
         />
         <button
           onClick={handleJump}
-          className="bg-blue-400 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded text-xs shadow-md active:scale-95 transition transform cursor-pointer"
+          className="bg-[#F9832B] hover:bg-[#e67220] text-white font-bold px-4 py-2 rounded text-xs shadow-md active:scale-95 transition transform cursor-pointer"
         >
           Go
         </button>

@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Heart,
 } from "lucide-react";
+import { Navigate, useNavigate, useLocation } from "react-router-dom";
 
 function RestroList() {
   // 🔹 Sample static data
@@ -53,8 +54,9 @@ function RestroList() {
   const [filterType, setFilterType] = useState("All");
   const [filterHygiene, setFilterHygiene] = useState("All");
   const [filterFav, setFilterFav] = useState(false);
+  const navigate = useNavigate();
 
-  // ✅ Toggle favorite
+  //  Toggle favorite
   const toggleFavorite = (id) => {
     setRestaurants(
       restaurants.map((restro) =>
@@ -63,12 +65,12 @@ function RestroList() {
     );
   };
 
-  // ✅ Delete Restaurant
+  //  Delete Restaurant
   const handleDelete = (id) => {
     setRestaurants(restaurants.filter((restro) => restro.id !== id));
   };
 
-  // ✅ Apply filters
+  //  Apply filters
   const filteredRestaurants = restaurants.filter((restro) => {
     const matchesSearch =
       restro.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -94,6 +96,7 @@ function RestroList() {
         <button
           className="flex items-center gap-2 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg"
           style={{ backgroundColor: "#F9832B" }}
+          onClick={() => navigate("/RestroAdd")}
         >
           <PlusCircle size={18} /> Add Restaurant
         </button>
@@ -140,7 +143,7 @@ function RestroList() {
         </label>
       </div>
 
-      {/* 📋 Table */}
+      {/*  Table */}
       <div className="bg-white shadow-md rounded-xl border border-gray-200 overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>

@@ -40,12 +40,12 @@ function UserProfile() {
         </div>
 
         {/* Right: Edit Button */}
-        <button
+        {/* <button
           className="px-5 py-2 rounded-lg text-white font-medium shadow-md hover:shadow-lg"
           style={{ backgroundColor: "#F9832B" }}
         >
           Edit Profile
-        </button>
+        </button> */}
       </div>
 
       {/* Tier + Points */}

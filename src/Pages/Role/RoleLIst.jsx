@@ -275,7 +275,7 @@ function RoleList() {
       <div className="flex justify-between items-center">
         <PageTitle title={"All Roles"} />
         <button
-          className="bg-blue-500 text-white cursor-pointer px-4 py-2 rounded hover:bg-blue-600 text-[12px]"
+          className="bg-[#F9832B] text-white cursor-pointer px-4 py-2 rounded hover:bg-[#e67220] text-[12px]"
           onClick={() => navigate("/RoleUpdate")}
         >
           <span className="font-bold">+ </span>ADD ROLE
@@ -307,14 +307,14 @@ function RoleList() {
 
       <div className="bg-white p-3 shadow-xl">
         <form className="flex gap-1 mb-3">
-          <div className="relative flex gap-2 px-3 py-2  bg-blue-50 w-[300px] rounded-md">
+          <div className="relative flex gap-2 px-3 py-2  bg-gray-100 w-[300px] rounded-md">
             <FaSearch className="absolute opacity-40 top-3" size={15} />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search here"
-              className="ml-6 text-[14px] outline-none bg-blue-50 appearance-none"
+              className="ml-6 text-[14px] outline-none bg-gray-100 appearance-none"
             />
           </div>
         </form>

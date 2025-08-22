@@ -18,7 +18,7 @@ function RoleCreate() {
   const [permissions, setPermissions] = useState({});
   const [loading, setLoading] = useState(false);
 
-  // ✅ Helper for auth headers
+  // Helper for auth headers
   const getAuthHeaders = () => {
     const authData = JSON.parse(localStorage.getItem("broom_auth"));
     const token = authData?.token;
@@ -33,7 +33,7 @@ function RoleCreate() {
     }
   }, [location.pathname, id]);
 
-  // ✅ Prefill in edit mode
+  // Prefill in edit mode
   useEffect(() => {
     if (!id) return;
 
@@ -196,7 +196,7 @@ function RoleCreate() {
             />
             <label
               htmlFor="role_name"
-              className="absolute text-lg text-gray-700 font-medium top-[-10px] left-[-4px]"
+              className="absolute text-lg text-gray-700 font-medium top-[-27px] left-[-4px]"
             >
               Role Name *
             </label>
@@ -212,7 +212,7 @@ function RoleCreate() {
             />
             <label
               htmlFor="role_description"
-              className="absolute text-lg text-gray-700 font-medium top-[-10px] left-[-4px]"
+              className="absolute text-lg text-gray-700 font-medium top-[-27px] left-[-4px]"
             >
               Description
             </label>
@@ -231,7 +231,9 @@ function RoleCreate() {
         </div>
 
         {permissionSections.length === 0 && (
-          <p className="text-gray-500 text-sm">No permission sections available.</p>
+          <p className="text-gray-500 text-sm">
+            No permission sections available.
+          </p>
         )}
 
         {permissionSections.map((section) => {
@@ -316,8 +318,8 @@ function RoleCreate() {
             className={`${
               loading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
-            } font-semibold w-full text-white px-6 py-2 rounded transition`}
+                : "bg-[#F9832B] hover:shadow-lg"
+            } font-semibold w-full text-white px-6 py-2 rounded transition cursor-pointer`}
             onClick={handleSave}
           >
             {loading ? "Saving..." : "SAVE"}

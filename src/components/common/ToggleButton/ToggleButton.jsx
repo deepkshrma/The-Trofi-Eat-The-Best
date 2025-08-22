@@ -8,7 +8,7 @@ function ToggleButton({ isOn, onToggle }) {
         ${
           isOn
             ? "bg-gradient-to-r from-green-500 to-green-500 shadow-green-400/50"
-            : "bg-gradient-to-r from-gray-300 to-blue-400 shadow-blue-300/50"
+            : "bg-gradient-to-r from-gray-300 to-[#F9832B] shadow-[#F9832B]/50"
         }
       `}
     >

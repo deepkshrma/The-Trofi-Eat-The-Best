@@ -74,16 +74,10 @@ function Dashboard() {
       filter: "Today / Week / Month",
       route: "/reports/checkins",
     },
-    {
-      title: "Avg. Ratings",
-      value: "4.3 ★",
-      filter: "Dish / Restaurant",
-      route: "/reports/ratings",
-    },
   ];
   return (
     <>
-      <div className="main main_page bg-[#FFFEF6] font-Montserrat space-y-4">
+      <div className="main main_page  font-Montserrat space-y-4">
         {/* ---------title page */}
         <PageTitle title={"Dashboard"} />
         {/* ---------card box */}
