@@ -58,7 +58,7 @@ function RestroAdd() {
     <div className="main main_page p-6 min-h-screen bg-gray-50">
       <PageTitle title={"Add New Restaurant"} />
 
-      {/* 🔑 Basic Info */}
+      {/*  Basic Info */}
       <div className="bg-white p-6 rounded-xl shadow-md mb-8 border border-gray-200 mt-5">
         <h2
           className="text-xl font-semibold flex items-center gap-2 mb-4 border-b pb-2"
@@ -121,7 +121,7 @@ function RestroAdd() {
         </div>
       </div>
 
-      {/* 📍 Location Info */}
+      {/*  Location Info */}
       <div className="bg-white p-6 rounded-xl shadow-md mb-8 border border-gray-200">
         <h2
           className="text-xl font-semibold flex items-center gap-2 mb-4 border-b pb-2"
@@ -180,7 +180,7 @@ function RestroAdd() {
         </div>
       </div>
 
-      {/* 🥗 Menu Details */}
+      {/*  Menu Details */}
       <div className="bg-white p-6 rounded-xl shadow-md mb-8 border border-gray-200">
         <h2
           className="text-xl font-semibold flex items-center gap-2 mb-4 border-b pb-2"
@@ -313,9 +313,9 @@ function RestroAdd() {
               />
               Available
             </label>
-            <p className="text-sm text-gray-500 mt-1">
+            {/* <p className="text-sm text-gray-500 mt-1">
               Last Updated: {dish.lastUpdated}
-            </p>
+            </p> */}
           </div>
         ))}
       </div>
