@@ -47,7 +47,7 @@ function NotificationBell() {
         )}
 
         <GoBellFill
-          className="w-7 h-7 text-blue-500 
+          className="w-7 h-7 text-white 
             transition-transform duration-200 
             hover:scale-110 hover:rotate-6 hover:drop-shadow-lg"
         />

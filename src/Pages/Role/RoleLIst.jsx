@@ -61,7 +61,7 @@ function RoleList() {
       const token = authData?.token;
 
       if (!token) {
-        toast.error("Token not found!");
+        // toast.error("Token not found!");
         return;
       }
 
@@ -80,7 +80,7 @@ function RoleList() {
     } catch (error) {
       const errorMessage =
         error?.response?.data?.message || "failed to fetch  roles !";
-      toast.error(errorMessage);
+      // toast.error(errorMessage);
     }
   };
 
@@ -169,7 +169,7 @@ function RoleList() {
     } catch (error) {
       const errorMessage =
         error?.response?.data?.message || "Failed to change status!";
-      toast.error(errorMessage);
+      // toast.error(errorMessage);
     }
   };
 

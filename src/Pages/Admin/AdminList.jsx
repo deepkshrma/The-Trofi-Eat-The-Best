@@ -144,7 +144,7 @@ const AdminList = () => {
         const token = authData?.token;
 
         if (!token) {
-          toast.error("Token not found !! login again ");
+          // toast.error("Token not found !! login again ");
           return;
         }
 
@@ -184,7 +184,7 @@ const AdminList = () => {
         const errorMessage =
           error?.response?.data?.message ||
           "failed to fetch admins and roles !";
-        toast.error(errorMessage);
+        // toast.error(errorMessage);
       }
     };
 
@@ -220,7 +220,7 @@ const AdminList = () => {
       );
     } catch (error) {
       const errorMessage = error?.response?.data?.message || "failed to delete";
-      toast.error(errorMessage);
+      // toast.error(errorMessage);
     } finally {
       closeDeleteModal();
     }

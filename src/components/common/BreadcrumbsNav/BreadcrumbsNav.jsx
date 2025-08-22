@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { Home, ChevronRight } from "lucide-react"; // You can use Lucide or HeroIcons
+import { Home, ChevronRight } from "lucide-react";
 
 const BreadcrumbsNav = ({ customTrail = [] }) => {
   return (

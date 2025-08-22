@@ -23,10 +23,10 @@ const Allroutes = () => {
     <ContextApi.Provider value={{ authData, setAuthData }}>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* <Route path="/" element={<Login />} /> */}
           <Route path="/Login" element={<Login />} />
           <Route element={<Layout />}>
-            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/RoleList" element={<RoleList />} />
             <Route path="/RoleCreate" element={<RoleCreate />} />
             <Route path="/AdminProfile" element={<AdminProfile />} />

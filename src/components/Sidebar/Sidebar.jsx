@@ -70,9 +70,9 @@ function Sidebar({ setIs_Toggle, isToggle }) {
         ...(userRole === "admin"
           ? [
               {
-                name: "Admin Dashboard",
+                name: "Dashboard",
                 icon: <DashboardIcon className="w-4 h-4" />,
-                link: "#",
+                link: "Dashboard",
                 dropdown: false,
               },
             ]
@@ -80,9 +80,9 @@ function Sidebar({ setIs_Toggle, isToggle }) {
         ...(userRole === "superadmin"
           ? [
               {
-                name: "Superadmin Dashboard",
+                name: "Dashboard",
                 icon: <DashboardIcon className="w-4 h-4" />,
-                link: "#",
+                link: "Dashboard",
                 dropdown: false,
               },
             ]
@@ -90,133 +90,163 @@ function Sidebar({ setIs_Toggle, isToggle }) {
       ],
       border: true,
     },
-
-    // Feedback & Reviews
     {
-      section: "Feedback & Reviews Insights",
+      section: "Admin Management",
       items: [
-        { name: "Insights & Graphs", icon: <InsightsIcon />, link: "#" },
-        { name: "Hashtag Trends", icon: <TagIcon />, link: "#" },
-        { name: "Review Moderation", icon: <ReviewsIcon />, link: "#" },
-        { name: "Export Reports", icon: <DownloadIcon />, link: "#" },
+        { name: "Admin List", icon: <AdminPanelSettingsIcon />, link: "AdminList" },
+      ],
+      border: true,
+    },
+    {
+      section: "Role Management",
+      items: [
+        { name: "Add Role", icon: <GroupWorkIcon />, link: "RoleCreate" },
+        { name: "Role List", icon: <ListAltIcon />, link: "RoleList" },
+      ],
+      border: true,
+    },
+    {
+      section: "User Management",
+      items: [
+        { name: "User List", icon: <PeopleIcon />, link: "UserList" },
+      ],
+      border: true,
+    },
+    {
+      section: "Restaurant Management",
+      items: [
+        { name: "Add Restaurant", icon: <RestaurantIcon />, link: "RestroAdd" },
+        { name: " Restaurant List", icon: <LocalDiningIcon />, link: "RestroList" },
       ],
       border: true,
     },
 
-    // User Activity
-    {
-      section: "User Activity & Demographics",
-      items: [
-        { name: "Demographics", icon: <PeopleIcon />, link: "#" },
-        { name: "Tier Distribution", icon: <GroupWorkIcon />, link: "#" },
-        { name: "Flags & Behavior", icon: <FlagIcon />, link: "#" },
-        {
-          name: "User Drilldown Profiles",
-          icon: <PersonSearchIcon />,
-          link: "#",
-        },
-      ],
-      border: true,
-    },
+    // // Feedback & Reviews
+    // {
+    //   section: "Feedback & Reviews Insights",
+    //   items: [
+    //     { name: "Insights & Graphs", icon: <InsightsIcon />, link: "#" },
+    //     { name: "Hashtag Trends", icon: <TagIcon />, link: "#" },
+    //     { name: "Review Moderation", icon: <ReviewsIcon />, link: "#" },
+    //     { name: "Export Reports", icon: <DownloadIcon />, link: "#" },
+    //   ],
+    //   border: true,
+    // },
 
-    // Restaurant Performance
-    {
-      section: "Restaurant & Dish Performance",
-      items: [
-        { name: "Dish Trends", icon: <LocalDiningIcon />, link: "#" },
-        { name: "Restaurant Trends", icon: <RestaurantIcon />, link: "#" },
-        { name: "Hygiene Seal / Ratings", icon: <StarRateIcon />, link: "#" },
-        {
-          name: "Owner Insights & Reports",
-          icon: <AssessmentIcon />,
-          link: "#",
-        },
-      ],
-      border: true,
-    },
+    // // User Activity
+    // {
+    //   section: "User Activity & Demographics",
+    //   items: [
+    //     { name: "Demographics", icon: <PeopleIcon />, link: "#" },
+    //     { name: "Tier Distribution", icon: <GroupWorkIcon />, link: "#" },
+    //     { name: "Flags & Behavior", icon: <FlagIcon />, link: "#" },
+    //     {
+    //       name: "User Drilldown Profiles",
+    //       icon: <PersonSearchIcon />,
+    //       link: "#",
+    //     },
+    //   ],
+    //   border: true,
+    // },
 
-    // Flags & Moderation
-    {
-      section: "Flags & Moderation",
-      items: [
-        { name: "Flagged Users", icon: <FlagIcon />, link: "#" },
-        { name: "Flagged Feedbacks", icon: <ReportProblemIcon />, link: "#" },
-        { name: "Bulk Moderation Actions", icon: <ListAltIcon />, link: "#" },
-      ],
-      border: true,
-    },
+    // // Restaurant Performance
+    // {
+    //   section: "Restaurant & Dish Performance",
+    //   items: [
+    //     { name: "Dish Trends", icon: <LocalDiningIcon />, link: "#" },
+    //     { name: "Restaurant Trends", icon: <RestaurantIcon />, link: "#" },
+    //     { name: "Hygiene Seal / Ratings", icon: <StarRateIcon />, link: "#" },
+    //     {
+    //       name: "Owner Insights & Reports",
+    //       icon: <AssessmentIcon />,
+    //       link: "#",
+    //     },
+    //   ],
+    //   border: true,
+    // },
 
-    // Check-ins
-    {
-      section: "Check-ins & Engagement",
-      items: [
-        { name: "Check-in Trends", icon: <LocationOnIcon />, link: "#" },
-        {
-          name: "Suspicious Behavior Alerts",
-          icon: <WarningAmberIcon />,
-          link: "#",
-        },
-      ],
-      border: true,
-    },
+    // // Flags & Moderation
+    // {
+    //   section: "Flags & Moderation",
+    //   items: [
+    //     { name: "Flagged Users", icon: <FlagIcon />, link: "#" },
+    //     { name: "Flagged Feedbacks", icon: <ReportProblemIcon />, link: "#" },
+    //     { name: "Bulk Moderation Actions", icon: <ListAltIcon />, link: "#" },
+    //   ],
+    //   border: true,
+    // },
 
-    // User & Tier Management
-    {
-      section: "User & Tier Management",
-      items: [
-        { name: "User Profiles", icon: <PeopleIcon />, link: "#" },
-        { name: "Tier Points & Badges", icon: <BadgeIcon />, link: "#" },
-        { name: "Flagged Users History", icon: <HistoryIcon />, link: "#" },
-      ],
-      border: true,
-    },
+    // // Check-ins
+    // {
+    //   section: "Check-ins & Engagement",
+    //   items: [
+    //     { name: "Check-in Trends", icon: <LocationOnIcon />, link: "#" },
+    //     {
+    //       name: "Suspicious Behavior Alerts",
+    //       icon: <WarningAmberIcon />,
+    //       link: "#",
+    //     },
+    //   ],
+    //   border: true,
+    // },
 
-    // Notifications
-    {
-      section: "Notifications",
-      items: [
-        {
-          name: "Manage Notifications",
-          icon: <NotificationsIcon />,
-          link: "#",
-        },
-        { name: "Feedback Prompts", icon: <CampaignIcon />, link: "#" },
-        { name: "Policy Alerts", icon: <SecurityIcon />, link: "#" },
-        { name: "Notification History", icon: <HistoryEduIcon />, link: "#" },
-      ],
-      border: true,
-    },
+    // // User & Tier Management
+    // {
+    //   section: "User & Tier Management",
+    //   items: [
+    //     { name: "User Profiles", icon: <PeopleIcon />, link: "#" },
+    //     { name: "Tier Points & Badges", icon: <BadgeIcon />, link: "#" },
+    //     { name: "Flagged Users History", icon: <HistoryIcon />, link: "#" },
+    //   ],
+    //   border: true,
+    // },
 
-    // Menu & Dish Tools
-    {
-      section: "Menu & Dish Tools",
-      items: [
-        { name: "Upload Menu Images", icon: <MenuBookIcon />, link: "#" },
-        { name: "Ingredients Management", icon: <AddCircleIcon />, link: "#" },
-        {
-          name: "Dish Image Moderation",
-          icon: <PhotoLibraryIcon />,
-          link: "#",
-        },
-      ],
-      border: true,
-    },
+    // // Notifications
+    // {
+    //   section: "Notifications",
+    //   items: [
+    //     {
+    //       name: "Manage Notifications",
+    //       icon: <NotificationsIcon />,
+    //       link: "#",
+    //     },
+    //     { name: "Feedback Prompts", icon: <CampaignIcon />, link: "#" },
+    //     { name: "Policy Alerts", icon: <SecurityIcon />, link: "#" },
+    //     { name: "Notification History", icon: <HistoryEduIcon />, link: "#" },
+    //   ],
+    //   border: true,
+    // },
 
-    // Admin & System Controls
-    {
-      section: "Admin & System Controls",
-      items: [
-        {
-          name: "Role Management",
-          icon: <AdminPanelSettingsIcon />,
-          link: "#",
-        },
-        { name: "Restaurant Management", icon: <BusinessIcon />, link: "#" },
-        { name: "Data Import / Backup", icon: <BackupIcon />, link: "#" },
-        { name: "Monitoring & Logs", icon: <MonitorIcon />, link: "#" },
-      ],
-      border: true,
-    },
+    // // Menu & Dish Tools
+    // {
+    //   section: "Menu & Dish Tools",
+    //   items: [
+    //     { name: "Upload Menu Images", icon: <MenuBookIcon />, link: "#" },
+    //     { name: "Ingredients Management", icon: <AddCircleIcon />, link: "#" },
+    //     {
+    //       name: "Dish Image Moderation",
+    //       icon: <PhotoLibraryIcon />,
+    //       link: "#",
+    //     },
+    //   ],
+    //   border: true,
+    // },
+
+    // // Admin & System Controls
+    // {
+    //   section: "Admin & System Controls",
+    //   items: [
+    //     {
+    //       name: "Role Management",
+    //       icon: <AdminPanelSettingsIcon />,
+    //       link: "#",
+    //     },
+    //     { name: "Restaurant Management", icon: <BusinessIcon />, link: "#" },
+    //     { name: "Data Import / Backup", icon: <BackupIcon />, link: "#" },
+    //     { name: "Monitoring & Logs", icon: <MonitorIcon />, link: "#" },
+    //   ],
+    //   border: true,
+    // },
   ];
 
   const handleMainClick = (item) => {
