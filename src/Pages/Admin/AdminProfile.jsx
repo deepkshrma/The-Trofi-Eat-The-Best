@@ -26,7 +26,7 @@ function AdminProfile() {
   } = profileData;
   return (
     <>
-      <div className="main main_page flex flex-col ">
+      <div className="main main_page flex flex-col w-full h-screen">
         <div className="w-full flex items-center justify-start translate-x-28">
           <PageTitle title={"Profile"} />
         </div>
