@@ -72,7 +72,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
               {
                 name: "Dashboard",
                 icon: <DashboardIcon className="w-4 h-4" />,
-                link: "Dashboard",
+                link: "/",
                 dropdown: false,
               },
             ]
@@ -82,7 +82,7 @@ function Sidebar({ setIs_Toggle, isToggle }) {
               {
                 name: "Dashboard",
                 icon: <DashboardIcon className="w-4 h-4" />,
-                link: "Dashboard",
+                link: "/",
                 dropdown: false,
               },
             ]
@@ -93,7 +93,11 @@ function Sidebar({ setIs_Toggle, isToggle }) {
     {
       section: "Admin Management",
       items: [
-        { name: "Admin List", icon: <AdminPanelSettingsIcon />, link: "AdminList" },
+        {
+          name: "Admin List",
+          icon: <AdminPanelSettingsIcon />,
+          link: "AdminList",
+        },
       ],
       border: true,
     },
@@ -107,16 +111,18 @@ function Sidebar({ setIs_Toggle, isToggle }) {
     },
     {
       section: "User Management",
-      items: [
-        { name: "User List", icon: <PeopleIcon />, link: "UserList" },
-      ],
+      items: [{ name: "User List", icon: <PeopleIcon />, link: "UserList" }],
       border: true,
     },
     {
       section: "Restaurant Management",
       items: [
         { name: "Add Restaurant", icon: <RestaurantIcon />, link: "RestroAdd" },
-        { name: " Restaurant List", icon: <LocalDiningIcon />, link: "RestroList" },
+        {
+          name: " Restaurant List",
+          icon: <LocalDiningIcon />,
+          link: "RestroList",
+        },
       ],
       border: true,
     },
