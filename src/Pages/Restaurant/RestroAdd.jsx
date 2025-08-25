@@ -93,7 +93,7 @@ function RestroAdd() {
           rows="4"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 mb-6">
           {/* Profile Image */}
           <div>
             <label className="block mb-2 font-medium">
@@ -114,10 +114,58 @@ function RestroAdd() {
               type="file"
               accept="image/*"
               multiple
-              onChange={(e) => setGallery([...e.target.files])}
+              onChange={(e) =>
+                setGallery((prev) => [...prev, ...Array.from(e.target.files)])
+              }
               className="w-full border border-gray-300 p-2 rounded-lg shadow-sm bg-gray-50"
             />
+
+            {/* Preview selected images */}
+            <div className="flex gap-3 flex-wrap mt-3">
+              {gallery.map((img, idx) => (
+                <div key={idx} className="relative">
+                  <img
+                    src={URL.createObjectURL(img)}
+                    alt={`gallery-${idx}`}
+                    className="w-20 h-20 object-cover rounded-lg border"
+                  />
+                  {/* Remove button */}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setGallery((prev) => prev.filter((_, i) => i !== idx))
+                    }
+                    className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-red-600 shadow-md"
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* Facilities */}
+        <h3 className="font-medium mb-3">Facilities Available:</h3>
+        <div className="flex gap-3 flex-wrap">
+          {facilityOptions.map((facility) => {
+            const isActive = restaurantData.facilities.includes(facility);
+            return (
+              <button
+                key={facility}
+                type="button"
+                onClick={() => handleFacilityToggle(facility)}
+                className={`px-4 py-2 rounded-full text-sm font-medium shadow-sm transition 
+        ${
+          isActive
+            ? "bg-[#F9832B] text-white"
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        }`}
+              >
+                {facility}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -154,29 +202,6 @@ function RestroAdd() {
             onChange={handleChange}
             className="border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-[#F9832B] focus:border-[#F9832B] outline-none"
           />
-        </div>
-
-        {/* Facilities */}
-        <h3 className="font-medium mb-3">Facilities Available:</h3>
-        <div className="flex gap-3 flex-wrap">
-          {facilityOptions.map((facility) => {
-            const isActive = restaurantData.facilities.includes(facility);
-            return (
-              <button
-                key={facility}
-                type="button"
-                onClick={() => handleFacilityToggle(facility)}
-                className={`px-4 py-2 rounded-full text-sm font-medium shadow-sm transition 
-        ${
-          isActive
-            ? "bg-[#F9832B] text-white"
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-        }`}
-              >
-                {facility}
-              </button>
-            );
-          })}
         </div>
       </div>
 
@@ -217,6 +242,7 @@ function RestroAdd() {
             key={index}
             className="border border-gray-300 p-4 rounded-lg mb-4 bg-gray-50 shadow-md"
           >
+            {/* Dish Fields */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
               <input
                 type="text"
@@ -232,7 +258,8 @@ function RestroAdd() {
                 }}
                 className="w-full border border-gray-300 p-2 rounded-lg shadow-sm focus:ring-2 focus:ring-[#F9832B] focus:border-[#F9832B] outline-none"
               />
-              {/* Dish Type Select */}
+
+              {/* Dish Type */}
               <select
                 value={dish.type}
                 onChange={(e) => {
@@ -251,8 +278,8 @@ function RestroAdd() {
               </select>
             </div>
 
+            {/* Spice + Price */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
-              {/* Spice Level Select */}
               <select
                 value={dish.spiceLevel}
                 onChange={(e) => {
@@ -285,6 +312,7 @@ function RestroAdd() {
               />
             </div>
 
+            {/* Image + Availability */}
             <label className="block mb-1">Dish Image</label>
             <input
               type="file"
@@ -297,7 +325,7 @@ function RestroAdd() {
               className="w-full border border-gray-300 p-2 rounded-lg shadow-sm bg-gray-50 mb-2"
             />
 
-            <label className="flex items-center gap-2">
+            <label className="flex items-center gap-2 mb-3">
               <input
                 type="checkbox"
                 checked={dish.available}
@@ -313,9 +341,24 @@ function RestroAdd() {
               />
               Available
             </label>
-            {/* <p className="text-sm text-gray-500 mt-1">
-              Last Updated: {dish.lastUpdated}
-            </p> */}
+
+            {/* ✅ Footer with Remove Button */}
+            <div className="flex justify-end">
+              <button
+                onClick={() => {
+                  const updatedDishes = restaurantData.dishes.filter(
+                    (_, i) => i !== index
+                  );
+                  setRestaurantData({
+                    ...restaurantData,
+                    dishes: updatedDishes,
+                  });
+                }}
+                className="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition"
+              >
+                Remove Dish
+              </button>
+            </div>
           </div>
         ))}
       </div>
