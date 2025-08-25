@@ -10,7 +10,7 @@ function NotificationBell() {
     "You have a new message",
   ]);
 
-  const dropdownRef = useRef(null); // ✅ ref for bell + dropdown
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   const clearNotifications = () => {
@@ -18,7 +18,6 @@ function NotificationBell() {
     setNotifications([]);
   };
 
-  // ✅ Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -27,9 +26,7 @@ function NotificationBell() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -57,17 +54,27 @@ function NotificationBell() {
       {isOpen && (
         <div
           className="absolute right-0 mt-3 w-72 bg-white rounded-xl shadow-xl z-20 
-             border border-orange-100"
+             border border-orange-100 flex flex-col"
         >
+          {/* Header with Clear All */}
+          {notifications.length > 0 && (
+            <div className="border-b border-orange-100 bg-orange-50 rounded-t-xl px-4 py-2 flex justify-end">
+              <button
+                onClick={clearNotifications}
+                className="text-xs text-orange-500 hover:text-orange-600 font-medium"
+              >
+                Clear All
+              </button>
+            </div>
+          )}
+
           {/* Notifications list */}
-          <ul className="max-h-64 overflow-y-auto">
+          <ul className="max-h-64 overflow-y-auto flex-1">
             {notifications.length > 0 ? (
               notifications.map((note, index) => (
                 <li
                   key={index}
-                  className={`${
-                    index === 0 ? "rounded-tl-lg rounded-tr-lg" : ""
-                  } px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 transition-colors`}
+                  className="px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 transition-colors"
                 >
                   {note}
                 </li>
@@ -79,14 +86,14 @@ function NotificationBell() {
             )}
           </ul>
 
-          {/* Footer with Clear All */}
+          {/* Footer with Show All */}
           {notifications.length > 0 && (
             <div className="border-t border-orange-100 bg-orange-50 rounded-b-xl px-4 py-2 flex justify-center">
               <button
-                onClick={clearNotifications}
+                onClick={() => alert("Navigate to All Notifications Page")}
                 className="text-xs text-orange-500 hover:text-orange-600 font-medium"
               >
-                Clear All
+                Show All
               </button>
             </div>
           )}
